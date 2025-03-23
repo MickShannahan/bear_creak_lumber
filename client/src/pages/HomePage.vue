@@ -4,7 +4,10 @@ import { computed } from 'vue';
 import TableWrapper from '@/components/TableWrapper.vue';
 
 
-let columns =  computed(()=> Object.keys(TestState.products[0] || {}))
+// let columns =  computed(()=> Object.keys(TestState.products[0] || {}))
+let columns =  computed(()=> [
+  'id', 'image', 'name'
+])
 let data = computed(()=> TestState.products)
 
 </script>

@@ -100,7 +100,7 @@ function handleSort(sortTuple){
 </section>
 
 <section class="table-wrapper">
-  <TableData :columns :data="paginatedData" :rowCount :skipRows @sortBy="handleSort"/>
+  <TableData :columns :data="paginatedData" :rowCount :skipRows @sortBy="handleSort" :highlight="filterBy"/>
 </section>
 
 <section class="container-fluid">
@@ -110,13 +110,15 @@ function handleSort(sortTuple){
   </div>
   <div class="col-md-8">
     <div class="d-flex">
-      <button :disabled="currentPage==1" @click="changePage(currentPage -1)" class="btn btn-outline-primary"><i class="mdi mdi-menu-left"></i></button>
-
+      <button :disabled="currentPage==1" @click="changePage(1)" class="btn btn-outline-primary"><i class="mdi mdi-arrow-collapse-left"></i></button>
+      <button :disabled="currentPage==1" @click="changePage(currentPage -1)" class="btn btn-outline-primary"><i class="mdi mdi-arrow-left"></i></button>
+      <span class="mx-1"></span>
       <button v-for="pageNumber in pageWindow" :key="'page-btn-'+pageNumber" class="btn" :class="{'btn-primary': pageNumber == currentPage, 'btn-outline-primary': pageNumber != currentPage}" @click="changePage(pageNumber)">
         {{ pageNumber }}
       </button>
-
-      <button :disabled="currentPage== totalPages" @click="changePage(currentPage +1)" class="btn btn-outline-primary"><i class="mdi mdi-menu-right"></i></button>
+      <span class="mx-1"></span>
+      <button :disabled="currentPage== totalPages" @click="changePage(currentPage +1)" class="btn btn-outline-primary"><i class="mdi mdi-arrow-right"></i></button>
+      <button :disabled="currentPage== totalPages" @click="changePage(totalPages)" class="btn btn-outline-primary"><i class="mdi mdi-arrow-collapse-right"></i></button>
     </div>
   </div>
 </section>
