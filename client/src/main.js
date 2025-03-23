@@ -9,7 +9,7 @@ import { router } from './router.js'
 
 const root = createApp(App)
 async function init() {
-  await registerGlobalComponents(root)
+  // await registerGlobalComponents(root)
   root
     .use(router)
     .mount('#app')

@@ -10,6 +10,19 @@ export const AppState = reactive({
 
 
 export const TestState = reactive({
+  navigation: [
+    {
+      name: 'Products',
+      icon: 'package-variant-closed',
+      route: '/products'
+    },
+    {
+      name: 'Orders',
+      icon: 'package-down',
+      route: '/orders'
+    },
+  ],
+
   products: [
     {
       "common_locations": [

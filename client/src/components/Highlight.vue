@@ -41,7 +41,8 @@ watch([original, props], ()=>{
 
 <style lang="scss" scoped>
 ._highlight{
-  font-family: monospace;
+  font-family: var(--mono-font);
+  font-weight: 600;
 }
 
 ._highlight::after{

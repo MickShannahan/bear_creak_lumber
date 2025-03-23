@@ -1,11 +1,17 @@
 <script setup>
 import { RouterView } from 'vue-router';
+import TopNav from './components/TopNav.vue';
+import SideNav from './components/SideNav.vue';
 
 </script>
 
 <template>
-  <header>
+  <header data-bs-theme="dark" class="bg-body text-light">
+    <TopNav/>
   </header>
+  <section data-bs-theme="dark">
+    <SideNav/>
+  </section>
   <main>
     <RouterView/>
   </main>
@@ -13,5 +19,17 @@ import { RouterView } from 'vue-router';
 
 <style lang="scss">
 
+#app{
+  min-height: 100dvh;
+  // grid
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  grid-template-rows: 74px 1fr;
+}
+
+header{
+  grid-row: 1 / 2;
+  grid-column: 1 / 3;
+}
 
 </style>

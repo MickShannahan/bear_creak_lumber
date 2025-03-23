@@ -10,7 +10,13 @@ const routes = [
     path: '/',
     name: 'Home',
     component: loadPage('HomePage')
-  }
+  },
+  {
+    path: '/:collection',
+    name: 'Data Page',
+    component: loadPage('DataPage')
+  },
+
 ]
 
 export const router = createRouter({
