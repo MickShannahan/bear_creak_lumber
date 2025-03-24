@@ -1,5 +1,9 @@
 @import '_main.scss';
 
+:root {
+  --border-radius: 8px;
+}
+
 #app {
   display: flex;
   flex-direction: column;

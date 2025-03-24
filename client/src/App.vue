@@ -12,7 +12,7 @@ import SideNav from './components/SideNav.vue';
   <section data-bs-theme="dark">
     <SideNav/>
   </section>
-  <main>
+  <main class="p-2">
     <RouterView/>
   </main>
 </template>
@@ -23,7 +23,7 @@ import SideNav from './components/SideNav.vue';
   min-height: 100dvh;
   // grid
   display: grid;
-  grid-template-columns: 100px 1fr;
+  grid-template-columns: 75px 1fr;
   grid-template-rows: 74px 1fr;
 }
 

@@ -150,6 +150,7 @@ td {
   word-break: keep-all;
   overflow-wrap: normal;
   word-wrap: normal;
+  // white-space: nowrap;
   text-overflow: ellipsis;
   &:last-of-type{
     flex: unset;
