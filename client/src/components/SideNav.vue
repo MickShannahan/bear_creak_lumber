@@ -9,7 +9,7 @@ const navigationLinks = computed(()=> TestState.navigation)
 <div class="position-relative h-100">
   <section class="bg-body nav-wrapper">
     <nav>
-      <div class="sticky-top d-flex flex-column gap-1">
+      <div class="sticky-top d-flex flex-column gap-2">
       <RouterLink v-for="link in navigationLinks" :key="link.name" :to="link.route" class="router-link selectable">
         <button class="btn link-btn">
           <i :class="`fs-5 mdi mdi-${link.icon}`"></i>
@@ -30,9 +30,20 @@ const navigationLinks = computed(()=> TestState.navigation)
   top: 0;
   left: 0;
   bottom: 0;
+  min-width: 100%;
   z-index: 99;
-  box-sizing: content-box;
-  padding: .5em;
+  box-sizing: border-box;
+  padding: .65em;
+  &:hover::after{
+    position: absolute;
+    top: 0;
+    right: -3px;
+    content: '';
+    filter: blur(5px);
+    width: 5px;
+    background-color: rgba(0, 0, 0, 0.7);
+    height: 100%;
+  }
 }
 
 nav {
@@ -59,18 +70,21 @@ nav {
     margin-left: 0em; 
   }
 
-  // link grow effect
-  &:hover {
+ 
+}
+
+// link grow effect
+.nav-wrapper:hover{
     .link-name {
       max-width: 500px; 
       opacity: 1;
       margin-left: .5em; 
     }
-  }
 }
 
 .router-link{
   border-radius: var(--border-radius);
+  display: flex;
 }
 
 .router-link-active{
