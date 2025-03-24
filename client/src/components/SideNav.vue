@@ -18,6 +18,12 @@ const navigationLinks = computed(()=> TestState.navigation)
       </RouterLink>
     </div>
   </nav>
+  <div class="flex-grow-1"></div>
+  <div class="alert-btn">
+    <button class="btn">
+      <i class="mdi mdi-bell"></i>
+    </button>
+  </div>
 </section>
 </div>
 </template>
@@ -29,10 +35,12 @@ const navigationLinks = computed(()=> TestState.navigation)
   height: 100%;
   top: 0;
   left: 0;
-  bottom: 0;
-  min-width: 100%;
-  z-index: 99;
+  // bottom: 0;
+  // min-width: 100%;
+  z-index: 999;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
   padding: .65em;
   &:hover::after{
     position: absolute;
@@ -47,7 +55,7 @@ const navigationLinks = computed(()=> TestState.navigation)
 }
 
 nav {
-  height: 100%;
+  // height: 100%;
   display: flex;
   flex-direction: column;
 
@@ -91,4 +99,11 @@ nav {
     color: var(--bs-light);
     background-color: rgba(var(--bs-primary-rgb), .2);
 }
+
+// alert btn
+.alert-btn{
+  position: sticky;
+  bottom: 0;
+}
+
 </style>

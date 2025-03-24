@@ -83,7 +83,7 @@ function resizeColumn(ev, columnKey) {
 
 <template>
   <table class="table table-hover">
-    <thead>
+      <thead>
         <tr>
           <th v-for="(column, index) in columns" :key="'table-head-'+index" :style="`--col-width: ${colSizes[column]}%`" :class="{resizing: isResizing == column, 'text-primary': lastSorted[0]== column}">
             <span @click="sortItemsBy(column)" class="sort-btn" >
@@ -93,13 +93,14 @@ function resizeColumn(ev, columnKey) {
             </span>
             <span>{{ column }}</span>
             <i @mousedown="(ev) => handleMouseDown(ev, column)" :title="`${colSizes[column]}%`" class="mdi mdi-dots-vertical handle"></i>
-        </th>
-      </tr>
-    </thead>
+          </th>
+        </tr>
+      </thead>
     <tbody>
       <tr v-for="(row, rowIndex) in data" :key="'table-data-'+rowIndex">
         <td v-for="(cell, colKey) in columns" :data-type="columns[cell]" :key="colKey" :style="`--col-width: ${colSizes[cell]}%`" :class="{resizing: isResizing == cell}">
-          <span><Highlight :highlight>{{ row[cell] }}</Highlight></span>
+          <span v-if="row[cell]"><Highlight :highlight>{{ row[cell] }}</Highlight></span>
+          <span v-else title="no value"><i class="text-secondary mdi mdi-null"></i></span>
         </td>
       </tr>
     </tbody>
@@ -111,25 +112,26 @@ function resizeColumn(ev, columnKey) {
 table {
   user-select: none;
   overflow: auto;
+  width: 100%;
   .mdi{
     font-size: 1.25em;
   }
 }
 
 thead{
-position: sticky;
-top: 0;
+
 }
 
 tr {
   display: flex;
   box-sizing: border-box;
+  width: 100%;
 }
 
 th {
   padding-left: 2.5ch;
-  // flex-grow: 1;
-  flex: 0 0 max( 12ch,var(--col-width));
+  flex-grow: 1;
+  flex: 0 0 var(--col-width);
   // width: var(--col-width);
   box-sizing: border-box;
   position: relative;
@@ -142,14 +144,11 @@ th {
 }
 
 td {
-  // flex-grow: 1;
-  flex: 0 0 max( 12ch,var(--col-width));
+  flex-grow: 1;
+  flex: 0 0 var(--col-width);
   // width: var(--col-width);
   overflow: hidden;
   box-sizing: border-box;
-  word-break: keep-all;
-  overflow-wrap: normal;
-  word-wrap: normal;
   // white-space: nowrap;
   text-overflow: ellipsis;
   &:last-of-type{
