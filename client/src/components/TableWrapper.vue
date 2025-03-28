@@ -76,7 +76,7 @@ function handleSort(sortTuple){
 
 </script>
 
-<template>
+<template >
 
 <section class="container-fluid">
   <div class="row justify-content-between">
@@ -99,7 +99,7 @@ function handleSort(sortTuple){
   </div>
 </section>
 
-<section class="table-wrapper">
+<section class="table-wrapper" :key="tableName">
   <TableData :columns :data="paginatedData" :rowCount :skipRows @sortBy="handleSort" :highlight="filterBy"/>
 </section>
 

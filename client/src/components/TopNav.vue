@@ -3,22 +3,23 @@ import { TestState } from '@/AppState.js';
 import { computed } from 'vue';
 
 
-const navLinks = computed(()=> TestState.navigation)
+// const salesNavLInks = computed(()=> TestState.siteNavigation)
+const salesNavLInks = computed(()=> [])
 
 </script>
 
 <template>
 <div class="container-fluid h-100">
   <section class="row align-items-center h-100">
-    <div class="col-2">
-      <span>🐻‍❄️ Creek Lumber</span>
+    <div class="col-1">
+      <h5>Bear Creek</h5>
     </div>
     <nav class="col h-100 d-flex align-items-end" >
         <RouterLink
-        v-for="link in navLinks" :key="link.name"
+        v-for="link in salesNavLInks" :key="link.name"
          :to="`${link.route}`"
-          class="p-3 h-75 router-link">
-          {{ link.name }}
+          class="pb-3 p-2 router-link">
+          <span>{{ link.alias ?? link.name }}</span>
         </RouterLink>
     </nav>
     <div class="col-2">
@@ -44,9 +45,13 @@ nav{
   border-bottom: 0;
   min-width: 12ch;
   text-align: center;
+  min-height: 70%;
+  transition: all .2s linear;
+  font-weight: bold;
 }
 
 .router-link-active{
   background-color: var(--bs-light);
+  // min-height: 80% !important;
 }
 </style>

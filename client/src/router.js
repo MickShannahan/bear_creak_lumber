@@ -12,11 +12,15 @@ const routes = [
     component: loadPage('HomePage')
   },
   {
-    path: '/:collection',
-    name: 'Data Page',
-    component: loadPage('DataPage')
+    path: '/request+for+quotes',
+    name: 'Request For Quotes',
+    component: loadPage('RequestForQuotesPage')
   },
-
+  {
+    path: '/products',
+    name: 'Products',
+    component: loadPage('ProductsPage')
+  },
 ]
 
 export const router = createRouter({

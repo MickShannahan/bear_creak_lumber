@@ -82,7 +82,7 @@ function resizeColumn(ev, columnKey) {
 
 
 <template>
-  <table class="table table-hover">
+  <table class="table table-striped table-hover">
       <thead>
         <tr>
           <th v-for="(column, index) in columns" :key="'table-head-'+index" :style="`--col-width: ${colSizes[column]}%`" :class="{resizing: isResizing == column, 'text-primary': lastSorted[0]== column}">
@@ -99,7 +99,12 @@ function resizeColumn(ev, columnKey) {
     <tbody>
       <tr v-for="(row, rowIndex) in data" :key="'table-data-'+rowIndex">
         <td v-for="(cell, colKey) in columns" :data-type="columns[cell]" :key="colKey" :style="`--col-width: ${colSizes[cell]}%`" :class="{resizing: isResizing == cell}">
-          <span v-if="row[cell]"><Highlight :highlight>{{ row[cell] }}</Highlight></span>
+          <span v-if="row[cell]">
+            <span v-if="row[cell]?.includes ? row[cell].includes(highlight) : false">
+              <Highlight :highlight :text="row[cell]"/>
+            </span>
+            <span v-else>{{ row[cell] }}</span>
+          </span>
           <span v-else title="no value"><i class="text-secondary mdi mdi-null"></i></span>
         </td>
       </tr>
@@ -112,8 +117,10 @@ function resizeColumn(ev, columnKey) {
 table {
   user-select: none;
   overflow: auto;
-  width: 100%;
-  .mdi{
+  // width: 100%;
+  border: 1px solid var(--bs-secondary);
+  border-radius: var(--bs-border-radius);
+  th .mdi{
     font-size: 1.25em;
   }
 }
@@ -130,7 +137,7 @@ tr {
 
 th {
   padding-left: 2.5ch;
-  flex-grow: 1;
+  // flex-grow: 1;
   flex: 0 0 var(--col-width);
   // width: var(--col-width);
   box-sizing: border-box;
@@ -144,13 +151,16 @@ th {
 }
 
 td {
-  flex-grow: 1;
+  // flex-grow: 1;
   flex: 0 0 var(--col-width);
   // width: var(--col-width);
   overflow: hidden;
   box-sizing: border-box;
-  // white-space: nowrap;
+  white-space: nowrap;
   text-overflow: ellipsis;
+  border: 0;
+  font-family: var(--mono-font);
+  font-weight: 600;
   &:last-of-type{
     flex: unset;
     flex-grow: 1;

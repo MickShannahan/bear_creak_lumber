@@ -24,7 +24,7 @@ function clearSearch(){
       <form @submit.prevent="searchTable" >
         <div class="mb-3 d-md-flex align-items-center">
           <label for="table-search" class="me-2">search</label>
-          <input @input="searchTable" v-model="searchTerm" type="text" class="form-control">
+          <input @input="searchTable" v-model.trim="searchTerm" type="text" class="form-control">
         </div>
       </form>
 </template>
