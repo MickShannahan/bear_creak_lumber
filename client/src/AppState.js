@@ -30,7 +30,7 @@ export const TestState = reactive({
       name: 'Purchase Agreements',
       alias: 'PA',
       icon: 'mdi-file-document-check',
-      route: '/request+for+quotes',
+      route: '/request-for-quotes',
       group: 'sales'
     },
     {
@@ -78,14 +78,8 @@ export const TestState = reactive({
     },
     // freights
     {
-      name: 'Freights',
-      icon: 'mdi-truck-cargo-container',
-      route: '/request+for+quotes',
-      group: 'freights'
-    },
-    {
-      name: 'Freight Purchase Orders',
-      icon: 'mdi-truck-delivery mdi-flip',
+      name: 'Tracking Cards',
+      icon: 'mdi-credit-card-marker',
       route: '/request+for+quotes',
       group: 'freights'
     },
@@ -95,16 +89,16 @@ export const TestState = reactive({
       route: '/request+for+quotes',
       group: 'freights'
     },
-    {
-      name: 'Freights Admin',
-      icon: 'mdi-bus-wrench',
-      route: '/request+for+quotes',
-      group: 'freights'
-    },
     // Admin
     {
       name: 'Users',
       icon: 'mdi-badge-account',
+      route: '/request+for+quotes',
+      group: 'admin'
+    },
+    {
+      name: 'Categories',
+      icon: 'mdi-shape-plus',
       route: '/request+for+quotes',
       group: 'admin'
     },

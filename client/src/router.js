@@ -9,18 +9,26 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: loadPage('HomePage')
+    component: loadPage('HomePage'),
+    children: [
+      {
+        path: 'request-for-quotes',
+        name: 'Request For Quotes',
+        component: loadPage('RequestForQuotesPage')
+      },
+      {
+        path: 'products',
+        name: 'Products',
+        component: loadPage('ProductsPage')
+      },
+    ]
   },
   {
-    path: '/request+for+quotes',
-    name: 'Request For Quotes',
-    component: loadPage('RequestForQuotesPage')
+    path: '/login',
+    name: 'Login',
+    component: loadPage('LoginPage')
   },
-  {
-    path: '/products',
-    name: 'Products',
-    component: loadPage('ProductsPage')
-  },
+
 ]
 
 export const router = createRouter({
