@@ -4,11 +4,21 @@ import TableWrapper from '@/components/TableWrapper.vue';
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 import {Product} from '../models/Product.js'
+import FormBase from '@/components/forms/FormBase.vue';
 
 
 const route = useRoute()
 
 const data = computed(()=> TestState.products ?? [])
+const productForm =[
+  {type: 'text', label: 'grade', required: true},
+  {type: 'text', label: 'description'},
+  {type: 'text', label: 'LF per', required: true},
+  {type: 'text', label: 'WT per', required: true},
+  {type: 'text', label: 'size', required: true},
+  {type: 'text', label: 'species', required: true},
+  {type: 'text', label: 'incoming price', required: true},
+]
 
 </script>
 
@@ -17,6 +27,13 @@ const data = computed(()=> TestState.products ?? [])
   <h1>
     Products
   </h1>
+
+<section class="mb-4">
+  <FormBase :inputs="productForm"/>
+
+</section>
+
+
 <section v-if="data[0]">
     <TableWrapper :columns="Product.tableColumnsView" :data tableName="products"/>
 </section>
