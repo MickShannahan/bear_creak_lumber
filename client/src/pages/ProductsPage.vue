@@ -5,6 +5,7 @@ import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 import {Product} from '../models/Product.js'
 import FormBase from '@/components/forms/FormBase.vue';
+import OffcanvasWrapper from '@/components/wrappers/OffcanvasWrapper.vue';
 
 
 const route = useRoute()
@@ -24,9 +25,23 @@ const productForm =[
 
 
 <template>
+  <section class="sticky-top">
+    this is sticky
+    <OffcanvasWrapper id="something-special">
+  <template #body>
+    This is the body
+  </template>
+  <template #trigger>
+    <div role="button">As long as it's a button it opens it</div>
+  </template>
+</OffcanvasWrapper>
+  </section>
+
   <h1>
     Products
   </h1>
+
+
 
 <section class="mb-4">
   <FormBase :inputs="productForm"/>
