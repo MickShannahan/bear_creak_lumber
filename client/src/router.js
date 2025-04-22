@@ -17,9 +17,64 @@ const routes = [
         component: loadPage('RequestForQuotesPage')
       },
       {
+        path: 'purchase-agreements',
+        name: 'Purchase Agreements',
+        component: loadPage('PurchaseAgreementsPage')
+      },
+      {
+        path: 'purchase-orders',
+        name: 'Purchase Orders',
+        component: loadPage('PurchaseOrdersPage')
+      },
+      {
         path: 'products',
         name: 'Products',
         component: loadPage('ProductsPage')
+      },
+      {
+        path: 'tallies',
+        name: 'tallies',
+        component: loadPage('TalliesPage')
+      },
+      {
+        path: 'companies',
+        name: 'Companies',
+        component: loadPage('CompaniesPage')
+      },
+      {
+        path: 'people',
+        name: 'People',
+        component: loadPage('PeoplePage')
+      },
+      {
+        path: 'payments',
+        name: 'Payments',
+        component: loadPage('PaymentsPage')
+      },
+      {
+        path: 'open-orders',
+        name: 'Open Orders',
+        component: loadPage('OpenOrdersPage')
+      },
+      {
+        path: 'tracking-cards',
+        name: 'Tracking Cards',
+        component: loadPage('TrackingCardsPage')
+      },
+      {
+        path: 'bill-of-lading',
+        name: 'Bill of Lading',
+        component: loadPage('BillOfLadingPage')
+      },
+      {
+        path: 'users',
+        name: 'Users',
+        component: loadPage('UsersPage')
+      },
+      {
+        path: 'site-settings',
+        name: 'Site Settings',
+        component: loadPage('SiteSettingsPage')
       },
     ]
   },

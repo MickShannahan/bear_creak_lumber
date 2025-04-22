@@ -130,6 +130,11 @@
   }
 }
 
+
+:root {
+  --dialog-backdrop: rgba(0, 0, 50, 0.2);
+}
+
 .custom-dialog {
   min-width: 38ch;
   max-width: 64ch;
@@ -139,7 +144,17 @@
   padding: 2em;
   box-shadow: var(--bs-box-shadow);
   animation: blink-toasty .2s ease forwards;
+
+  &::backdrop {
+    background-color: var(--dialog-backdrop);
+  }
 }
+
+.modal-backdrop {
+  --bs-backdrop-bg: var(--dialog-backdrop);
+  --bs-backdrop-opacity: 1;
+}
+
 
 #pop-toast-container {
   position: fixed;

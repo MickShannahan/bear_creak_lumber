@@ -1,13 +1,16 @@
 <script setup>
 import { logger } from '@/utils/Logger.js';
+import { Offcanvas } from 'bootstrap/dist/js/bootstrap.bundle.js';
 import { onMounted, useTemplateRef, ref } from 'vue';
 
+defineExpose({close})
 const props = defineProps({
   id: {type: String, default: 'offcanvas-id'},
   position: {type: String, default: 'end'},
   resizable: {type: Boolean, default: true}
 })
 const emit = defineEmits(['show','shown', 'hidden'])
+
 
 const offcanvas = useTemplateRef(`${props.id}-offcanvas-id`)
 const offcanvasTrigger = useTemplateRef(`${props.id}-offcanvas-trigger-wrapper`)
@@ -47,7 +50,12 @@ onMounted(() => {
   offcanvas.value?.addEventListener('show.bs.offcanvas', emit('show'))
   offcanvas.value?.addEventListener('hidden.bs.offcanvas', emit('hidden'))
   offcanvas.value?.addEventListener('shown.bs.offcanvas', emit('shown'))
-});
+})
+
+function close(){
+  let toClose = Offcanvas.getOrCreateInstance(offcanvas.value)
+  if(toClose) toClose.hide()
+}
 </script>
 
 <template>

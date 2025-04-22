@@ -23,21 +23,21 @@ export const TestState = reactive({
       name: 'Request For Quote',
       alias: 'RFQ',
       icon: 'mdi-file-question',
-      route: '/request+for+quotes',
+      route: '/request-for-quotes',
       group: 'sales'
     },
     {
       name: 'Purchase Agreements',
       alias: 'PA',
       icon: 'mdi-file-document-check',
-      route: '/request-for-quotes',
+      route: '/purchase-agreements',
       group: 'sales'
     },
     {
       name: 'Purchase Orders',
       alias: 'PO',
       icon: 'mdi-clipboard-list',
-      route: '/request+for+quotes',
+      route: '/purchase-orders',
       group: 'sales'
     },
     {
@@ -49,63 +49,57 @@ export const TestState = reactive({
     {
       name: 'Tallies',
       icon: 'mdi-dolly',
-      route: '/request+for+quotes',
+      route: '/tallies',
       group: 'sales'
     },
     {
       name: 'Companies',
       icon: 'mdi-office-building',
-      route: '/request+for+quotes',
+      route: '/companies',
       group: 'sales'
     },
     {
       name: 'People',
       icon: 'mdi-account-group',
-      route: '/request+for+quotes',
+      route: '/people',
       group: 'sales'
     },
     {
       name: 'Payments',
       icon: 'mdi-tag-check',
-      route: '/request+for+quotes',
+      route: '/payments',
       group: 'sales'
     },
     {
       name: 'Open Orders',
       icon: 'mdi-package-variant',
-      route: '/request+for+quotes',
+      route: '/open-orders',
       group: 'sales'
     },
     // freights
     {
       name: 'Tracking Cards',
       icon: 'mdi-credit-card-marker',
-      route: '/request+for+quotes',
+      route: '/tracking-cards',
       group: 'freights'
     },
     {
       name: 'Bill of Lading',
       icon: 'mdi-clipboard-file',
-      route: '/request+for+quotes',
+      route: '/bill-of-lading',
       group: 'freights'
     },
     // Admin
     {
       name: 'Users',
       icon: 'mdi-badge-account',
-      route: '/request+for+quotes',
-      group: 'admin'
-    },
-    {
-      name: 'Categories',
-      icon: 'mdi-shape-plus',
-      route: '/request+for+quotes',
+      route: '/users',
       group: 'admin'
     },
     {
       name: 'Site Settings',
       icon: 'mdi-application-cog',
-      route: '/request+for+quotes',
+      route: '/site-settings',
       group: 'admin'
     },
   ],

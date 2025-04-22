@@ -1,3 +1,5 @@
+import ListPerson from "@/components/listViews/ListPerson.vue"
+
 export class Person {
   // NOTE I hate this model btw
   constructor(data) {
@@ -35,5 +37,13 @@ export class Person {
 
   static get tableColumnsView() {
     return ['firstName', 'lastName', 'title', 'email', 'phone']
+  }
+
+  get listComponent() {
+    return ListPerson
+  }
+
+  get listSelect() {
+    return `${this.firstName} ${this.lastName}`
   }
 }
